@@ -16,6 +16,7 @@ public class QuestSystem : MonoBehaviour
 
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Space) && playerIsHere)
         {
             AddQuest();
@@ -27,7 +28,7 @@ public class QuestSystem : MonoBehaviour
         if (activeQuest == null)
         {
             activeQuest = questList[Random.Range(0, questList.Count)];
-            Debug.Log("Quest Started");
+            Debug.Log("Quest " +activeQuest.id+ " Started");
         }
     }
 
