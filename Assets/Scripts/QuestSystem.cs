@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+ using UnityEngine.UI;
+
 
 public class QuestSystem : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class QuestSystem : MonoBehaviour
     public List<Quest> questList = new List<Quest>();
     private Quest activeQuest;
     private bool playerIsHere;
+
+    public Text onScreen;
 
     private float time = 0.0f;
     public float interpolationPeriod = 1f;
@@ -33,7 +37,7 @@ FindObjectOfType<PlayerState>().updateTimerText();
 
 
                 if(FindObjectOfType<PlayerState>().timer<0){
-                    activeQuest = null;
+                    // activeQuest = null;
                 }
     }
         timePassed = 0f;
@@ -58,6 +62,32 @@ FindObjectOfType<PlayerState>().updateTimerText();
         {
             activeQuest = questList[Random.Range(0, questList.Count)];
             Debug.Log("Quest " +activeQuest.id+ " Started");
+
+            string location = "";
+
+            switch(activeQuest.id){
+                case(1):
+                    location="Pizzeria";
+                    break;
+                case(2):
+                    location="Hospital";
+                    break;
+                case(3):
+                    location="Prison";
+                    break;
+                case(4):
+                    location="Police";
+                    break;
+                case(5):
+                    location="Bank";
+                    break;
+                case(6):
+                    location="Racing";
+                    break;
+            }
+            onScreen.text = "Go to "+location;
+    
+
         }
     }
 
@@ -76,6 +106,7 @@ FindObjectOfType<PlayerState>().updateTimerText();
             Debug.Log("Quest number " + activeQuest.id + " is complete");
             FindObjectOfType<PlayerState>().incrementPizzas();
             activeQuest = null;
+            onScreen.text="";
         }
     }
 
