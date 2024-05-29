@@ -10,6 +10,9 @@ public class PlayerState : MonoBehaviour
     public int pizzasDelivered;
     public int timer;
     public Text text;
+
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,10 @@ public class PlayerState : MonoBehaviour
     public void incrementPizzas(){
         pizzasDelivered+=1;
         text.text = ""+pizzasDelivered;
+    }
+
+    public void updateTimerText(){
+
     }
 
     // Update is called once per frame

@@ -9,19 +9,48 @@ public class QuestSystem : MonoBehaviour
     private Quest activeQuest;
     private bool playerIsHere;
 
+    private float time = 0.0f;
+    public float interpolationPeriod = 1f;
+
     void Awake()
     {
         instance = this;
     }
 
+    float timePassed = 0f;
     void Update()
     {
-        
+      
+      timePassed += Time.deltaTime;
+      
+    if(timePassed > 1f)
+    {
+        //do something
+        if(activeQuest!=null){
+            Debug.Log("in there");
+FindObjectOfType<PlayerState>().timer-=1;
+FindObjectOfType<PlayerState>().updateTimerText();
+
+
+                if(FindObjectOfType<PlayerState>().timer<0){
+                    activeQuest = null;
+                }
+    }
+        timePassed = 0f;
+    } 
+
+                
+            
+
         if (Input.GetKeyDown(KeyCode.Space) && playerIsHere)
         {
             AddQuest();
         }
     }
+
+    
+
+
 
     void AddQuest()
     {
