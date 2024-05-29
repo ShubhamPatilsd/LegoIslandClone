@@ -45,6 +45,7 @@ public class QuestSystem : MonoBehaviour
         if (activeQuest != null && activeQuest.id == _id)
         {
             Debug.Log("Quest number " + activeQuest.id + " is complete");
+            FindObjectOfType<PlayerState>().incrementPizzas();
             activeQuest = null;
         }
     }
