@@ -1988,6 +1988,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eb75022599b444adab12723fb650880a, type: 2}
   - {fileID: 11400000, guid: 3e7aaebce1fce46cd98d5d93e0826f72, type: 2}
   - {fileID: 11400000, guid: 00b235b1600e640ebab7728eda651d9c, type: 2}
+  - {fileID: 11400000, guid: 23422daea1d9542ccabb3fb2b355bd44, type: 2}
 --- !u!65 &1791121093
 BoxCollider:
   m_ObjectHideFlags: 0
